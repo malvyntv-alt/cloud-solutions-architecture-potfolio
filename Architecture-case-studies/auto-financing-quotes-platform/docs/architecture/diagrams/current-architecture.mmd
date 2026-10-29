@@ -1,0 +1,20 @@
+flowchart TB
+    Users[Browser] -->|DNS lookup| DNS[Route 53]
+    Users -->|HTTPS| ALB
+    subgraph AWS["One AWS region"]
+        WAF[WAF] -. association .-> ALB[Public ALB / ACM]
+        ALB <-->|Authentication| Cognito[Cognito]
+        subgraph Private["Private subnets"]
+            ALB --> Web[Fargate web]
+            Web -->|Atomic quote + event| DB[(Aurora)]
+            Publisher[Fargate publisher] -->|Lease / update| DB
+            Lambda[Notification Lambda] -->|Quote / ledger| DB
+        end
+        Publisher --> SQS[SQS Standard]
+        SQS --> Lambda
+        SQS -->|Redrive| DLQ[Dead-letter queue]
+        Lambda --> SES[SES]
+        Trail[CloudTrail management events] --> Audit[S3 audit / same account]
+        CW[CloudWatch logs / metrics / alarms]
+    end
+    SES --> Email[Email with protected app link]

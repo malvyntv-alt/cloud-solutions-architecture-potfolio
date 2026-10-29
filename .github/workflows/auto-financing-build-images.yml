@@ -1,0 +1,58 @@
+name: auto-financing-build-images
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: New immutable tag matching private tfvars
+        required: true
+permissions:
+  contents: read
+jobs:
+  checks:
+    uses: ./.github/workflows/auto-financing-checks.yml
+    permissions:
+      contents: read
+  push:
+    needs: checks
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+      IMAGE_TAG: ${{ inputs.image_tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate release settings
+        shell: bash
+        run: |
+          [[ "$IMAGE_TAG" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$ ]] || exit 1
+          [[ "$PROJECT_NAME" =~ ^[a-z][a-z0-9-]{2,19}$ ]] || exit 1
+          [[ -n "$AWS_REGION" ]] || exit 1
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - uses: docker/setup-buildx-action@v3
+      - name: Build and push application
+        uses: docker/build-push-action@v6
+        with:
+          context: Architecture-case-studies/auto-financing-quotes-platform
+          file: Architecture-case-studies/auto-financing-quotes-platform/containers/Dockerfile.web
+          platforms: linux/amd64
+          push: true
+          provenance: false
+          tags: ${{ steps.ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-app:${{ env.IMAGE_TAG }}
+      - name: Build and push notifier
+        uses: docker/build-push-action@v6
+        with:
+          context: Architecture-case-studies/auto-financing-quotes-platform
+          file: Architecture-case-studies/auto-financing-quotes-platform/containers/Dockerfile.notifier
+          platforms: linux/amd64
+          push: true
+          provenance: false
+          tags: ${{ steps.ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-email:${{ env.IMAGE_TAG }}

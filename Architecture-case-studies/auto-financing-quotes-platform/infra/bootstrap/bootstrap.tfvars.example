@@ -1,0 +1,4 @@
+project     = "drivequote-portfolio"
+region      = "us-east-1"
+github_repo = "YOUR_GITHUB_OWNER/cloud-solutions-achitecture-potfolio"
+# github_oidc_subject = "EXACT_CUSTOM_SUBJECT_IF_REQUIRED"

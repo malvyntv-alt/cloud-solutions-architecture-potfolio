@@ -1,0 +1,15 @@
+FROM python:3.12-slim
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 APP_MODE=aws
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+# Download only the official AWS RDS trust bundle; TLS verification stays enabled.
+RUN python -c "import urllib.request; urllib.request.urlretrieve('https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem','/app/rds-ca.pem')"
+COPY app ./app
+COPY migrations ./migrations
+COPY web ./web
+RUN useradd --uid 10001 --create-home quote
+USER 10001
+EXPOSE 8080
+CMD ["gunicorn","--bind","0.0.0.0:8080","--workers","2","--threads","4","--worker-tmp-dir","/dev/shm","app.server:application"]
+

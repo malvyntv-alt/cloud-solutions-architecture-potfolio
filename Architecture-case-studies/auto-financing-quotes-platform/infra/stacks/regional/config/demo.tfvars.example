@@ -1,0 +1,13 @@
+# Copy to config/demo.tfvars, replace placeholders and keep private.
+project             = "drivequote-portfolio"
+region              = "us-east-1"
+profile             = "demo"
+domain_name         = "portfolio-quotes.example.com"
+hosted_zone_id      = "Z0907567RV5CH55RDQJD"
+email_from          = "quotes@example.com"
+alarm_email         = ""
+enable_runtime      = false
+image_tag           = "release-001"
+enable_waf          = true
+deletion_protection = false
+monthly_budget_usd  = "150"

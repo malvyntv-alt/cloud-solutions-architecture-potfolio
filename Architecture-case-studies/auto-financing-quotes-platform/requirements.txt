@@ -1,0 +1,4 @@
+boto3>=1.35,<2
+psycopg[binary]>=3.2,<4
+PyJWT[crypto]>=2.10,<3
+gunicorn>=23,<24

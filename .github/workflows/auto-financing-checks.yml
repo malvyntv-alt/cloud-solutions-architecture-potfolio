@@ -1,0 +1,41 @@
+name: auto-financing-checks
+on:
+  push:
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: Architecture-case-studies/auto-financing-quotes-platform
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check web/app.js
+      - run: python scripts/verify-repository.py
+      - run: python ../../scripts/verify-portfolio.py
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.16.5'
+      - run: terraform fmt -check -recursive infra
+      - run: terraform -chdir=infra/stacks/regional init -backend=false
+      - run: terraform -chdir=infra/stacks/regional validate
+      - run: terraform -chdir=infra/stacks/regional test
+
+
+      - run: terraform -chdir=infra/bootstrap init -backend=false
+      - run: terraform -chdir=infra/bootstrap validate
