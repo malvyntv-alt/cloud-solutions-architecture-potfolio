@@ -19,7 +19,7 @@ The linked demo record belongs to the imported project's existing deployment his
 ## Repository structure
 
 ```text
-cloud-solutions-achitecture-potfolio/
+cloud-solutions-architecture-portfolio/
 ├── README.md
 ├── Architecture-case-studies/
 │   ├── README.md

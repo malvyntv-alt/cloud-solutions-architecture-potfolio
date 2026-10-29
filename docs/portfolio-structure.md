@@ -1,6 +1,6 @@
 # Portfolio ownership and layout
 
-The exact owner-selected names are cloud-solutions-achitecture-potfolio and Architecture-case-studies. The current project is auto-financing-quotes-platform.
+The exact owner-selected names are cloud-solutions-architecture-portfolio and Architecture-case-studies. The current project is auto-financing-quotes-platform.
 
 This is one Git repository, not a submodule collection. Both existing local repositories remain untouched. The latest tracked standalone project files were copied, excluding raw deployment logs and private/generated artifacts. Existing deployment records were preserved as historical evidence.
 

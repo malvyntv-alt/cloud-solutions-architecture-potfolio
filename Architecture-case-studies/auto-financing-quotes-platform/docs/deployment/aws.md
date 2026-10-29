@@ -90,6 +90,6 @@ HA expands the same state. Review increased costs and retain both arguments on s
 
 ## Portfolio repository identity
 
-Set private bootstrap github_repo to YOUR_GITHUB_OWNER/cloud-solutions-achitecture-potfolio before configuring this portfolio's image-push role. OIDC subjects identify the repository and branch, not a folder. Existing trust for the standalone project does not automatically authorize the portfolio.
+Set private bootstrap github_repo to YOUR_GITHUB_OWNER/cloud-solutions-architecture-portfolio before configuring this portfolio's image-push role. OIDC subjects identify the repository and branch, not a folder. Existing trust for the standalone project does not automatically authorize the portfolio.
 
 Do not reuse the standalone project's state or assume this folder move migrated infrastructure. Review state/resource ownership separately before any deployment. No state or credentials were imported.
