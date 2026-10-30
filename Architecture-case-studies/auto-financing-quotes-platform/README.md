@@ -24,6 +24,8 @@ Open http://127.0.0.1:8080 or run `./scripts/local/start.ps1`. Identity, queue, 
 
 ## Architecture
 
+### Implemented single-region flow
+
 ```mermaid
 flowchart LR
     U[Browser] --> ALB[HTTPS ALB + Cognito]
@@ -44,6 +46,14 @@ flowchart LR
 - CloudWatch logs/metrics/alarms/dashboard and CloudTrail management events.
 
 SES acceptance is not delivery. A crash before ledger commit can still duplicate email.
+
+### Target multi-region architecture
+
+**Target design, not the deployed demo topology.** The verified AWS exercise used one region and the cost-reduced demo profile. Region B, cross-region database/identity replication and isolated cross-region backups shown below remain roadmap items. Availability and RTO/RPO figures are illustrative objectives, not measured results.
+
+[![Target architecture for the auto-financing quotes platform](docs/architecture/diagrams/target-architecture.png)](docs/architecture/diagrams/target-architecture.pdf)
+
+[Open the diagram as PDF](docs/architecture/diagrams/target-architecture.pdf) · [Architecture details and diagram caveats](docs/architecture/overview.md) · [Regional DR roadmap](docs/operations/recovery-roadmap.md)
 
 ## Regional profiles
 
