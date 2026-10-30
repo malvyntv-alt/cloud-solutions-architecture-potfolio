@@ -7,7 +7,7 @@ Projects below contain implementation and supporting architecture documentation.
 | Project | What to explore |
 |---|---|
 | [Auto-Financing Quotes Platform](auto-financing-quotes-platform/README.md) | Reliable quote persistence, asynchronous notifications, Terraform, authentication and operational tradeoffs |
-| [Amplify Portfolio Hosting](amplify-portfolio-hosting/README.md) | Public hosting, anonymous page views, six Terraform modules; locally tested, not deployed |
+| [Amplify Portfolio Hosting](amplify-portfolio-hosting/README.md) | Public hosting, anonymous page views, six Terraform modules; deployed at [malvernvito.com](https://malvernvito.com/) |
 
 ## Add another project
 

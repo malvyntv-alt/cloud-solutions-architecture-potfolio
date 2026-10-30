@@ -2,7 +2,9 @@
 
 Public portfolio for malvernvito.com, with an approximate page-view counter. The existing page is reused; visitors do not sign in.
 
-**Status: implemented and locally tested. Not deployed; DNS and existing greeting.meldit.net hosting have not changed.**
+**Status: deployed on 2026-10-30. Live at [malvernvito.com](https://malvernvito.com/), with HTTPS, a www redirect and a working page-view counter.**
+
+[Live deployment evidence](docs/evidence/2026-10-30-live-deployment/README.md). The legacy greeting.meldit.net hosting remains available.
 
 [Portfolio home](../../README.md) · [Architecture](docs/architecture/overview.md) · [Deployment](docs/deployment.md) · [Security and cost](docs/security-and-cost.md) · [Validation](docs/evidence/validation.md)
 

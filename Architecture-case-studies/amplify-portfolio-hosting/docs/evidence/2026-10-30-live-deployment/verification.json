@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-10-30T20:54:37.4895294Z",
+  "domain": {
+    "domain": "malvernvito.com",
+    "status": "AVAILABLE",
+    "subdomains": [
+      {
+        "prefix": null,
+        "verified": false
+      },
+      {
+        "prefix": "www",
+        "verified": true
+      }
+    ]
+  },
+  "apex_https_status": 200,
+  "www_status": 301,
+  "www_location": "https://malvernvito.com/",
+  "counter_configured": true,
+  "counter_get": {
+    "page": "home",
+    "views": 5
+  },
+  "security_headers": {
+    "content_type_options": "nosniff",
+    "strict_transport_security": "max-age=31536000",
+    "content_security_policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ha1y3y2e80.execute-api.us-east-1.amazonaws.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+  }
+}

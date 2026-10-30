@@ -27,15 +27,18 @@ resource "aws_amplify_app" "this" {
     status = "301"
   }
   custom_headers = yamlencode({
-    customHeaders = [{
-      pattern = "**/*"
-      headers = [
-        { key = "Strict-Transport-Security", value = "max-age=31536000" },
-        { key = "X-Content-Type-Options", value = "nosniff" },
-        { key = "Referrer-Policy", value = "strict-origin-when-cross-origin" },
-        { key = "Permissions-Policy", value = "camera=(), microphone=(), geolocation=()" },
-        { key = "Content-Security-Policy", value = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' ${var.api_url}; frame-ancestors 'none'; base-uri 'self'; form-action 'none'" }
-      ]
+    applications = [{
+      appRoot = var.app_root
+      customHeaders = [{
+        pattern = "**/*"
+        headers = [
+          { key = "Strict-Transport-Security", value = "max-age=31536000" },
+          { key = "X-Content-Type-Options", value = "nosniff" },
+          { key = "Referrer-Policy", value = "strict-origin-when-cross-origin" },
+          { key = "Permissions-Policy", value = "camera=(), microphone=(), geolocation=()" },
+          { key = "Content-Security-Policy", value = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' ${var.api_url}; frame-ancestors 'none'; base-uri 'self'; form-action 'none'" }
+        ]
+      }]
     }]
   })
   lifecycle {

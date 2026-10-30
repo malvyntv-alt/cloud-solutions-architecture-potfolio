@@ -7,7 +7,7 @@ AWS architecture projects demonstrating infrastructure as code, application reli
 | Project | Focus | Evidence |
 |---|---|---|
 | [Auto-Financing Quotes Platform](Architecture-case-studies/auto-financing-quotes-platform/README.md) | Terraform, ECS Fargate, Aurora PostgreSQL, Cognito, transactional outbox, SQS, Lambda and SES | [Live quote-to-email verification](Architecture-case-studies/auto-financing-quotes-platform/docs/evidence/dated-exercises/2026-10-29-live-verification/README.md) |
-| [Amplify Portfolio Hosting](Architecture-case-studies/amplify-portfolio-hosting/README.md) | Amplify, API Gateway, Lambda, DynamoDB, IAM and modular Terraform | [Locally tested; not deployed](Architecture-case-studies/amplify-portfolio-hosting/docs/evidence/validation.md) |
+| [Amplify Portfolio Hosting](Architecture-case-studies/amplify-portfolio-hosting/README.md) | Amplify, API Gateway, Lambda, DynamoDB, IAM and modular Terraform | [Deployed: live verification](Architecture-case-studies/amplify-portfolio-hosting/docs/evidence/2026-10-30-live-deployment/README.md) |
 
 The live exercise verified signed-in quote saving, sequential retry behavior and email receipt on the existing standalone AWS deployment, followed by verified regional teardown. Moving code into this portfolio does not create a second stack. Failure/recovery and performance remain unmeasured; the record states those limits.
 

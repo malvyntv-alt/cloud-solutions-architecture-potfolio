@@ -14,8 +14,8 @@ resource "aws_lambda_function" "counter" {
   architectures    = ["arm64"]
   filename         = var.lambda_zip
   source_code_hash = filebase64sha256(var.lambda_zip)
-  timeout          = 5
-  memory_size      = 128
+  timeout          = 10
+  memory_size      = 256
   environment { variables = { TABLE_NAME = var.table_name } }
   logging_config {
     log_format = "JSON"

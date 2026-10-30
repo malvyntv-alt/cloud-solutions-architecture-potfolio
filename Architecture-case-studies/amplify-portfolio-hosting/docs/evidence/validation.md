@@ -18,3 +18,7 @@ No Terraform apply, AWS app creation, GitHub App authorization, domain associati
 The fake-table concurrency test checks handler request behavior; it does not benchmark or prove real DynamoDB concurrency. The browser tests use a mocked fetch. AWS integration, TLS, actual hosting builds, throttling, alarms and deployment rollback remain to verify.
 
 [Local browser preview](local-preview.png) shows the no-API fallback. It is not an AWS deployment screenshot.
+
+## Subsequent deployment
+
+The statements above describe the 2026-10-29 local checks. AWS deployment and domain verification were performed on 2026-10-30; see [live deployment evidence](2026-10-30-live-deployment/README.md).

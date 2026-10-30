@@ -25,7 +25,12 @@ mock_provider "aws" {
     }
   }
 }
-variables { amplify_app_id = "dexample123" }
+variables {
+  amplify_app_id       = "dexample123"
+  enable_custom_domain = false
+  manage_dns_records   = false
+  enable_auto_build    = false
+}
 run "public_counter_without_dns_cutover" {
   command = plan
   assert {
