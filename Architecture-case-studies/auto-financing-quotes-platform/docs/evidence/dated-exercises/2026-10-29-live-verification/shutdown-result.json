@@ -1,0 +1,23 @@
+{
+  "started_at_utc": "2026-10-29T23:27:20.829975+00:00",
+  "finished_at_utc": "2026-10-29T23:49:46.371747+00:00",
+  "terraform_apply_exit_code": 0,
+  "planned_deletions": 90,
+  "destroy_completion_events": 90,
+  "bootstrap_preserved": true,
+  "checks": {
+    "aurora_cluster": "absent",
+    "load_balancer": "absent",
+    "lambda_notifier": "absent",
+    "ecr_app": "absent",
+    "ecr_email": "absent",
+    "sqs_email": "absent",
+    "sqs_email-dlq": "absent",
+    "cognito_pool": "absent",
+    "active_nat_gateways": 0,
+    "project_vpcs": 0,
+    "project_elastic_ips": 0,
+    "remaining_managed_state_resources": 0
+  },
+  "verified_regional_teardown": true
+}

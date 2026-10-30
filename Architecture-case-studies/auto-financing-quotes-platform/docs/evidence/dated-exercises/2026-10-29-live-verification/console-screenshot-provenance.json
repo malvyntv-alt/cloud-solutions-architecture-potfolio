@@ -1,0 +1,42 @@
+[
+  {
+    "file": "09-console-ecs-running.png",
+    "source": "User-supplied AWS console screenshot",
+    "unmodified": true,
+    "sha256": "f8473cd2ce313a85a6a508374eeba58868dcc4192b7980c34c713a884f62ef82",
+    "public_copy": true,
+    "note": "Visually reviewed; no credentials, email addresses or account IDs visible"
+  },
+  {
+    "file": "12-console-rds-overview.png",
+    "source": "User-supplied AWS console screenshot",
+    "unmodified": true,
+    "sha256": "3f94a5529c61feb6817996209b0bb8e96104109cb046a5d2c7bed2a5b5b2e30a",
+    "public_copy": true,
+    "note": "Visually reviewed; no credentials, email addresses or account IDs visible"
+  },
+  {
+    "file": "10-console-aurora-database.png",
+    "source": "User-supplied AWS console screenshot",
+    "unmodified": true,
+    "sha256": "d23907d21ea5dde0b12721ac452618c15ad498caa255dd6e7c9d8d287434d03d",
+    "public_copy": true,
+    "note": "Visually reviewed; no credentials, email addresses or account IDs visible"
+  },
+  {
+    "file": "cloudwatch-dashboard-original.png",
+    "source": "User-supplied AWS console screenshot",
+    "unmodified": true,
+    "sha256": "d21c35be48cdc1496c1db3144988d4f7b247336b3241b14106d011ee791aad12",
+    "public_copy": false,
+    "note": "Contains AWS account identifier; private original only"
+  },
+  {
+    "file": "11-console-sqs-and-dlq.png",
+    "source": "User-supplied AWS console screenshot",
+    "unmodified": true,
+    "sha256": "f9158666b343d7df440a126355afea3e25a25c6bae9ec940b85df5034b9739fe",
+    "public_copy": true,
+    "note": "Visually reviewed; no credentials, email addresses or account IDs visible"
+  }
+]

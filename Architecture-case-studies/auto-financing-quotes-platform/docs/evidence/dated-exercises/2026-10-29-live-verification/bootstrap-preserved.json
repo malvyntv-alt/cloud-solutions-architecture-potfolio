@@ -1,0 +1,7 @@
+{
+  "checked_at_utc": "2026-10-29T23:31:00.444494+00:00",
+  "state_bucket_preserved": true,
+  "kms_key_state": "Enabled",
+  "github_image_push_role_preserved": true,
+  "note": "Separate bootstrap retained intentionally; no claim of zero account-wide costs."
+}

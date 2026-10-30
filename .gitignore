@@ -22,3 +22,4 @@ work/
 docs/evidence/raw/
 
 *.log
+**/raw/

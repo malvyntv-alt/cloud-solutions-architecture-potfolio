@@ -1,0 +1,228 @@
+{
+  "captured_at_utc": "2026-10-29T23:11:48.832879+00:00",
+  "region": "us-east-1",
+  "profile": "demo",
+  "project": "auto-financing-quote",
+  "live_hostname_verified": true,
+  "ecs": [
+    {
+      "service": "auto-financing-quote-web",
+      "status": "ACTIVE",
+      "desired": 1,
+      "running": 1,
+      "pending": 0,
+      "deployments": [
+        {
+          "status": "PRIMARY",
+          "rollout": "COMPLETED"
+        }
+      ]
+    },
+    {
+      "service": "auto-financing-quote-publisher",
+      "status": "ACTIVE",
+      "desired": 1,
+      "running": 1,
+      "pending": 0,
+      "deployments": [
+        {
+          "status": "PRIMARY",
+          "rollout": "COMPLETED"
+        }
+      ]
+    }
+  ],
+  "aurora": {
+    "Engine": "aurora-postgresql",
+    "EngineVersion": "17.9",
+    "Status": "available",
+    "StorageEncrypted": true,
+    "BackupRetentionPeriod": 7,
+    "DeletionProtection": false,
+    "MultiAZ": false,
+    "instances": [
+      {
+        "DBInstanceClass": "db.t4g.medium",
+        "DBInstanceStatus": "available",
+        "AvailabilityZone": "us-east-1a",
+        "PubliclyAccessible": false
+      }
+    ]
+  },
+  "load_balancer": {
+    "type": "application",
+    "scheme": "internet-facing",
+    "state": "active",
+    "az_count": 2
+  },
+  "target_health": [
+    {
+      "health_check_path": "/healthz",
+      "targets": [
+        {
+          "state": "healthy",
+          "reason": null
+        }
+      ]
+    }
+  ],
+  "listeners": [
+    {
+      "port": 443,
+      "protocol": "HTTPS",
+      "ssl_policy": "ELBSecurityPolicy-TLS13-1-2-2021-06",
+      "actions": [
+        "authenticate-cognito",
+        "forward"
+      ]
+    },
+    {
+      "port": 80,
+      "protocol": "HTTP",
+      "ssl_policy": null,
+      "actions": [
+        "redirect"
+      ]
+    }
+  ],
+  "queues": {
+    "queue_url": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0",
+      "MessageRetentionPeriod": "345600",
+      "VisibilityTimeout": "180",
+      "SqsManagedSseEnabled": "true",
+      "max_receive_count": 5
+    },
+    "dlq_url": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0",
+      "MessageRetentionPeriod": "1209600",
+      "VisibilityTimeout": "30",
+      "SqsManagedSseEnabled": "true"
+    }
+  },
+  "lambda": {
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Image",
+    "Architectures": [
+      "x86_64"
+    ],
+    "MemorySize": 256,
+    "Timeout": 30,
+    "event_sources": [
+      {
+        "state": "Enabled",
+        "batch_size": 5,
+        "response_types": [
+          "ReportBatchItemFailures"
+        ],
+        "max_concurrency": 5
+      }
+    ]
+  },
+  "network": {
+    "nat_count": 1,
+    "subnets": [
+      {
+        "az": "us-east-1b",
+        "public_ip_on_launch": false
+      },
+      {
+        "az": "us-east-1a",
+        "public_ip_on_launch": false
+      },
+      {
+        "az": "us-east-1b",
+        "public_ip_on_launch": false
+      },
+      {
+        "az": "us-east-1a",
+        "public_ip_on_launch": false
+      }
+    ]
+  },
+  "cognito": {
+    "mfa": "OPTIONAL",
+    "verified_attributes": [
+      "email"
+    ],
+    "user_count": 1
+  },
+  "alarms": [
+    {
+      "name": "auto-financing-quote-dlq",
+      "state": "OK",
+      "metric": "ApproximateNumberOfMessagesVisible",
+      "threshold": 0.0
+    },
+    {
+      "name": "auto-financing-quote-email-errors",
+      "state": "OK",
+      "metric": "Errors",
+      "threshold": 0.0
+    },
+    {
+      "name": "auto-financing-quote-notification-failures",
+      "state": "OK",
+      "metric": "NotificationFailures",
+      "threshold": 0.0
+    },
+    {
+      "name": "auto-financing-quote-outbox-age",
+      "state": "OK",
+      "metric": "OldestPendingSeconds",
+      "threshold": 120.0
+    },
+    {
+      "name": "auto-financing-quote-queue-age",
+      "state": "OK",
+      "metric": "ApproximateAgeOfOldestMessage",
+      "threshold": 120.0
+    },
+    {
+      "name": "auto-financing-quote-unhealthy-target",
+      "state": "OK",
+      "metric": "UnHealthyHostCount",
+      "threshold": 0.0
+    }
+  ],
+  "dashboard": {
+    "name": "auto-financing-quote",
+    "exists": true
+  },
+  "cloudtrail": {
+    "logging": true,
+    "last_delivery_error": false
+  },
+  "images": {
+    "auto-financing-quote-app": [
+      {
+        "tags": [
+          "release-001"
+        ],
+        "digest": "sha256:96af851b6ecaba659624ac49c2d149c20a4dc1f930103aa64c40341cd0799fa6",
+        "size_bytes": 73264046
+      }
+    ],
+    "auto-financing-quote-email": [
+      {
+        "tags": [
+          "release-001"
+        ],
+        "digest": "sha256:b416413d80d9efa3106cc30b9fe720a5ac766c9c7bf60f99a4493f7698476d8a",
+        "size_bytes": 220595224
+      }
+    ]
+  },
+  "waf": {
+    "associated": true
+  },
+  "application_events": {
+    "web": {},
+    "publisher": {},
+    "email": {},
+    "migration": {}
+  }
+}

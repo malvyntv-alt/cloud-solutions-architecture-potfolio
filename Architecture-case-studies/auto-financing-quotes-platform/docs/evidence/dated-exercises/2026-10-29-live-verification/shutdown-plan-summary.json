@@ -1,0 +1,642 @@
+{
+  "prepared_at_utc": "2026-10-29T23:15:02.738823+00:00",
+  "stack": "auto-financing-quote",
+  "profile": "demo",
+  "region": "us-east-1",
+  "delete_count": 90,
+  "resources": [
+    {
+      "address": "aws_acm_certificate.main",
+      "type": "aws_acm_certificate",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_acm_certificate_validation.main",
+      "type": "aws_acm_certificate_validation",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_appautoscaling_policy.web[0]",
+      "type": "aws_appautoscaling_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_appautoscaling_target.web[0]",
+      "type": "aws_appautoscaling_target",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_budgets_budget.main",
+      "type": "aws_budgets_budget",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudtrail.main",
+      "type": "aws_cloudtrail",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_dashboard.main",
+      "type": "aws_cloudwatch_dashboard",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_log_group.app[\"email\"]",
+      "type": "aws_cloudwatch_log_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_log_group.app[\"migration\"]",
+      "type": "aws_cloudwatch_log_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_log_group.app[\"publisher\"]",
+      "type": "aws_cloudwatch_log_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_log_group.app[\"web\"]",
+      "type": "aws_cloudwatch_log_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_log_metric_filter.notification_failures",
+      "type": "aws_cloudwatch_log_metric_filter",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.dlq",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.lambda_errors[0]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.notification_failures[0]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.outbox[0]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.queue_age",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.unhealthy[0]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cognito_user_pool.main",
+      "type": "aws_cognito_user_pool",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cognito_user_pool_client.web",
+      "type": "aws_cognito_user_pool_client",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_cognito_user_pool_domain.main",
+      "type": "aws_cognito_user_pool_domain",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_db_subnet_group.main",
+      "type": "aws_db_subnet_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecr_repository.app",
+      "type": "aws_ecr_repository",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecr_repository.email",
+      "type": "aws_ecr_repository",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecs_cluster.main",
+      "type": "aws_ecs_cluster",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecs_service.publisher",
+      "type": "aws_ecs_service",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecs_service.web",
+      "type": "aws_ecs_service",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecs_task_definition.main[\"migration\"]",
+      "type": "aws_ecs_task_definition",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecs_task_definition.main[\"publisher\"]",
+      "type": "aws_ecs_task_definition",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ecs_task_definition.main[\"web\"]",
+      "type": "aws_ecs_task_definition",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_eip.nat[0]",
+      "type": "aws_eip",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role.execution",
+      "type": "aws_iam_role",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role.task[\"email\"]",
+      "type": "aws_iam_role",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role.task[\"migration\"]",
+      "type": "aws_iam_role",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role.task[\"publisher\"]",
+      "type": "aws_iam_role",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role.task[\"web\"]",
+      "type": "aws_iam_role",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.db_secret[\"email\"]",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.db_secret[\"migration\"]",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.db_secret[\"publisher\"]",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.db_secret[\"web\"]",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.email",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.publish",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy_attachment.execution",
+      "type": "aws_iam_role_policy_attachment",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy_attachment.lambda_vpc",
+      "type": "aws_iam_role_policy_attachment",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_internet_gateway.main",
+      "type": "aws_internet_gateway",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_lambda_event_source_mapping.email[0]",
+      "type": "aws_lambda_event_source_mapping",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_lambda_function.email[0]",
+      "type": "aws_lambda_function",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_lb.main",
+      "type": "aws_lb",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_lb_listener.http",
+      "type": "aws_lb_listener",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_lb_listener.https",
+      "type": "aws_lb_listener",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_lb_target_group.web",
+      "type": "aws_lb_target_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_nat_gateway.main[0]",
+      "type": "aws_nat_gateway",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_rds_cluster.main",
+      "type": "aws_rds_cluster",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_rds_cluster_instance.main[0]",
+      "type": "aws_rds_cluster_instance",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route53_record.app",
+      "type": "aws_route53_record",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route53_record.validation",
+      "type": "aws_route53_record",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table.private[0]",
+      "type": "aws_route_table",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table.private[1]",
+      "type": "aws_route_table",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table.public",
+      "type": "aws_route_table",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table_association.private[0]",
+      "type": "aws_route_table_association",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table_association.private[1]",
+      "type": "aws_route_table_association",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table_association.public[0]",
+      "type": "aws_route_table_association",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_route_table_association.public[1]",
+      "type": "aws_route_table_association",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket.audit",
+      "type": "aws_s3_bucket",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_lifecycle_configuration.audit",
+      "type": "aws_s3_bucket_lifecycle_configuration",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_policy.audit",
+      "type": "aws_s3_bucket_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_public_access_block.audit",
+      "type": "aws_s3_bucket_public_access_block",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_server_side_encryption_configuration.audit",
+      "type": "aws_s3_bucket_server_side_encryption_configuration",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_versioning.audit",
+      "type": "aws_s3_bucket_versioning",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_secretsmanager_secret.app",
+      "type": "aws_secretsmanager_secret",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_secretsmanager_secret_version.app",
+      "type": "aws_secretsmanager_secret_version",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_security_group.alb",
+      "type": "aws_security_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_security_group.compute",
+      "type": "aws_security_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_security_group.database",
+      "type": "aws_security_group",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ses_configuration_set.main",
+      "type": "aws_ses_configuration_set",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ses_email_identity.sender",
+      "type": "aws_ses_email_identity",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_ses_event_destination.delivery",
+      "type": "aws_ses_event_destination",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_sns_topic.alarms",
+      "type": "aws_sns_topic",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_sqs_queue.dlq",
+      "type": "aws_sqs_queue",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_sqs_queue.notifications",
+      "type": "aws_sqs_queue",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_sqs_queue_redrive_allow_policy.main",
+      "type": "aws_sqs_queue_redrive_allow_policy",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_subnet.private[0]",
+      "type": "aws_subnet",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_subnet.private[1]",
+      "type": "aws_subnet",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_subnet.public[0]",
+      "type": "aws_subnet",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_subnet.public[1]",
+      "type": "aws_subnet",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_vpc.main",
+      "type": "aws_vpc",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_vpc_endpoint.s3",
+      "type": "aws_vpc_endpoint",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_wafv2_web_acl.main[0]",
+      "type": "aws_wafv2_web_acl",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "aws_wafv2_web_acl_association.main[0]",
+      "type": "aws_wafv2_web_acl_association",
+      "actions": [
+        "delete"
+      ]
+    },
+    {
+      "address": "random_password.app",
+      "type": "random_password",
+      "actions": [
+        "delete"
+      ]
+    }
+  ],
+  "database_final_snapshot": false,
+  "bootstrap_included": false,
+  "plan_file": "Private saved plan in deployed standalone root; excluded from Git"
+}

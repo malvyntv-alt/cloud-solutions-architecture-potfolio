@@ -6,9 +6,9 @@ AWS architecture projects demonstrating infrastructure as code, application reli
 
 | Project | Focus | Evidence |
 |---|---|---|
-| [Auto-Financing Quotes Platform](Architecture-case-studies/auto-financing-quotes-platform/README.md) | Terraform, ECS Fargate, Aurora PostgreSQL, Cognito, transactional outbox, SQS, Lambda and SES | [Recorded AWS demo and teardown](Architecture-case-studies/auto-financing-quotes-platform/docs/evidence/dated-exercises/2026-10-29-demo-deployment.md) |
+| [Auto-Financing Quotes Platform](Architecture-case-studies/auto-financing-quotes-platform/README.md) | Terraform, ECS Fargate, Aurora PostgreSQL, Cognito, transactional outbox, SQS, Lambda and SES | [Live quote-to-email verification](Architecture-case-studies/auto-financing-quotes-platform/docs/evidence/dated-exercises/2026-10-29-live-verification/README.md) |
 
-The linked demo record belongs to the imported project's existing deployment history. Moving its files into this portfolio does not mean this repository has been deployed. Signed-in business-flow, failure/recovery and performance checks remain limited as described in that record.
+The live exercise verified signed-in quote saving, sequential retry behavior and email receipt on the existing standalone AWS deployment, followed by verified regional teardown. Moving code into this portfolio does not create a second stack. Failure/recovery and performance remain unmeasured; the record states those limits.
 
 ## Explore
 

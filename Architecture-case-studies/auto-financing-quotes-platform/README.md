@@ -89,11 +89,11 @@ Terraform tests mock providers; application tests use SQLite. Neither proves AWS
 
 ## Evidence and scope
 
-This independent edition derives from the original DriveQuote implementation. The implementation and its documented evidence were imported without original Git history/remotes, credentials, state or local data. This portfolio layout has not been deployed. **This edition was deployed to AWS once as a demo and torn down; see the [dated exercise](docs/evidence/dated-exercises/2026-10-29-demo-deployment.md) for what was and was not verified.** The [source record](docs/evidence/source-project-verification.md) preserves author-reported history with that provenance.
+The [live AWS exercise](docs/evidence/dated-exercises/2026-10-29-live-verification/README.md) verified Cognito sign-in, quote save/read, an idempotent sequential retry, event publication, SES acceptance and recipient-confirmed email receipt. The message initially went to spam and was moved to the inbox by the user.
 
-See [local validation](docs/evidence/local-validation.md) and [remaining exercises](docs/evidence/README.md). [Regional DR](docs/operations/recovery-roadmap.md) is a future implementation.
+The regional demo stack was torn down after evidence capture; the app is no longer hosted. Bootstrap/state storage was preserved. These observations came from the existing standalone deployment, not a second stack created from this portfolio folder. See [all evidence and limitations](docs/evidence/README.md), including the [earlier deployment record](docs/evidence/dated-exercises/2026-10-29-demo-deployment.md) and [historical source record](docs/evidence/source-project-verification.md).
 
-Estimates are illustrative, not underwriting, credit scoring or financing offers. Use synthetic inputs.
+Regional DR remains a [future implementation](docs/operations/recovery-roadmap.md). No production availability, scale or recovery objective is claimed. Estimates are illustrative, not underwriting, credit scoring or financing offers.
 
 ## Deploy deliberately
 

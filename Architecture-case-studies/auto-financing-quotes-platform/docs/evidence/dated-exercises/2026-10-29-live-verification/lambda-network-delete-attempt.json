@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-10-29T23:43:08.306070+00:00",
+  "execution_role_absent": true,
+  "lambda_function_version_references": 0,
+  "standard_cleanup": [
+    {
+      "interface_type": "lambda",
+      "before_status": "in-use",
+      "standard_cleanup_error_code": "InvalidParameterValue"
+    }
+  ],
+  "force_detach_used": false
+}

@@ -1,0 +1,94 @@
+{
+  "generated_at_utc": "2026-10-30T01:57:41.183230+00:00",
+  "files": [
+    {
+      "file": "01-aws-quote-studio.png",
+      "sha256": "df1db3cd98d571c0de72dc914b20a8d273976dbd996d112068a0e190f3413d9d"
+    },
+    {
+      "file": "02-aws-quote-saved.png",
+      "sha256": "a71f616e2fb63e789b9bf966bd5291ea515cd485b6d2c82f01097cc77bcdeebc"
+    },
+    {
+      "file": "03-aws-event-published-accepted.png",
+      "sha256": "2f2027fe316c3ee0b9e13ea462e4bd1d1d753db61f87a608e3e3c206813fa811"
+    },
+    {
+      "file": "04-aws-idempotent-retry-one-event.png",
+      "sha256": "2f2027fe316c3ee0b9e13ea462e4bd1d1d753db61f87a608e3e3c206813fa811"
+    },
+    {
+      "file": "05-cloudwatch-queue-age.png",
+      "sha256": "ceb91d00b993f3f80ef3274ea80640bec0b3adf3c8fdba22441dceb239290f78"
+    },
+    {
+      "file": "06-cloudwatch-outbox-age.png",
+      "sha256": "79b4f8a8f18fe0c03b9806fa3464a532d788a88cb616bd777ede7bd7acde4f42"
+    },
+    {
+      "file": "07-cloudwatch-alb-latency.png",
+      "sha256": "9a469b389c2b9bdb9faa9bf663fcf6d1ae799e9b3799f09d083d94733c9eca55"
+    },
+    {
+      "file": "08-cloudwatch-database-connections.png",
+      "sha256": "87bd4c1a334ebcf11347ea86ce214b22fb8e4f61e65c669a0f3261adde5a935c"
+    },
+    {
+      "file": "09-console-ecs-running.png",
+      "sha256": "f8473cd2ce313a85a6a508374eeba58868dcc4192b7980c34c713a884f62ef82"
+    },
+    {
+      "file": "10-console-aurora-database.png",
+      "sha256": "d23907d21ea5dde0b12721ac452618c15ad498caa255dd6e7c9d8d287434d03d"
+    },
+    {
+      "file": "11-console-sqs-and-dlq.png",
+      "sha256": "f9158666b343d7df440a126355afea3e25a25c6bae9ec940b85df5034b9739fe"
+    },
+    {
+      "file": "12-console-rds-overview.png",
+      "sha256": "3f94a5529c61feb6817996209b0bb8e96104109cb046a5d2c7bed2a5b5b2e30a"
+    },
+    {
+      "file": "aws-infrastructure.json",
+      "sha256": "1ec92acff2e5ab96a58316861f703a23b5011f294ab5574fcdb4d26473adef0c"
+    },
+    {
+      "file": "bootstrap-preserved.json",
+      "sha256": "15cbfba56c62c1355c640f2b64337e8840e5835c9c5313afa6c4f8ba602a1e5c"
+    },
+    {
+      "file": "console-screenshot-provenance.json",
+      "sha256": "2e9709e63cb144a897cca92fb87574ec52f8830e829a12b32694997b8990af34"
+    },
+    {
+      "file": "email-receipt.md",
+      "sha256": "cfc85a1baa152bc6b24042aa271d56b53e9ad8a26b20e94e8401babd526c3713"
+    },
+    {
+      "file": "lambda-network-cleanup.json",
+      "sha256": "d02cb6b5993e41013834294a588b95d82742df389585cc3d02c63c4ecad42b60"
+    },
+    {
+      "file": "lambda-network-delete-attempt.json",
+      "sha256": "e63626b67a9d1f85f9ecbaf8fc6b66a78c10122bedb035838071ccc1fcd52dda"
+    },
+    {
+      "file": "monitoring-and-workflows.json",
+      "sha256": "a5035422e62137053569b4bee53e46b9cefbd99f403d3c275be02152b7c74f6c"
+    },
+    {
+      "file": "README.md",
+      "sha256": "c2482c626be1e76ebe2d8d0e35f7fdbb261d3935bfbdb4790c787d7f7ae1000c"
+    },
+    {
+      "file": "shutdown-plan-summary.json",
+      "sha256": "2ea39d3647be4f894cb9d7f591c6ba068420316212f79a840fb9ba18f7e263ea"
+    },
+    {
+      "file": "shutdown-result.json",
+      "sha256": "efb09fdd84c0c647374b318591d52cdef2f376240f717d1f82427ddadc16acbb"
+    }
+  ],
+  "private_originals_excluded": true
+}

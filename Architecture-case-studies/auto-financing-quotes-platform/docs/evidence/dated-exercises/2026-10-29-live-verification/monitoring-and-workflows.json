@@ -1,0 +1,34 @@
+{
+  "captured_at_utc": "2026-10-29T23:13:48.264738+00:00",
+  "metric_scope": "SES account metrics; not proof of individual recipient receipt",
+  "ses": {
+    "Send": {
+      "sum_last_hour": 1.0,
+      "datapoint_count": 1
+    },
+    "Delivery": {
+      "sum_last_hour": 1.0,
+      "datapoint_count": 1
+    },
+    "Bounce": {
+      "sum_last_hour": 0,
+      "datapoint_count": 0
+    },
+    "Complaint": {
+      "sum_last_hour": 0,
+      "datapoint_count": 0
+    },
+    "Reject": {
+      "sum_last_hour": 0,
+      "datapoint_count": 0
+    },
+    "account_sending_enabled": true
+  },
+  "graphs": [
+    "05-cloudwatch-queue-age.png",
+    "06-cloudwatch-outbox-age.png",
+    "07-cloudwatch-alb-latency.png",
+    "08-cloudwatch-database-connections.png"
+  ],
+  "github_runs_note": "Public metadata not available: HTTPError"
+}
