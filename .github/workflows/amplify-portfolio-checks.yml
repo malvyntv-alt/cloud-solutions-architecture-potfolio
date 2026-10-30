@@ -1,0 +1,39 @@
+name: amplify-portfolio-checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: Architecture-case-studies/amplify-portfolio-hosting
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m unittest discover -s tests -p "test_*.py"
+      - run: node --test tests/counter.test.mjs
+      - run: node scripts/build-website.mjs
+      - run: python ../../scripts/verify-portfolio.py
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.16.5'
+      - run: python scripts/package-lambda.py
+      - run: terraform fmt -check -recursive terraform
+      - run: terraform -chdir=terraform/environments/production init -backend=false -lockfile=readonly
+      - run: terraform -chdir=terraform/environments/production validate
+      - run: terraform -chdir=terraform/environments/production test

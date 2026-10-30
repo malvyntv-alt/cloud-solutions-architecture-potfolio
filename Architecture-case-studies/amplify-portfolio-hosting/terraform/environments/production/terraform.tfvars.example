@@ -1,0 +1,13 @@
+project = "malvern-vito-portfolio"
+region = "us-east-1"
+amplify_app_id = "" # Set after the Amplify GitHub App connection and import.
+branch_name = "main"
+domain_name = "malvernvito.com"
+enable_auto_build = false
+enable_custom_domain = false
+manage_dns_records = false
+hosted_zone_id = ""
+additional_allowed_origins = []
+alarm_email = ""
+monthly_budget_usd = "10" # Alert threshold; not a cap or estimate.
+protect_counter_data = true

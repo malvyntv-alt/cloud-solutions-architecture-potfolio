@@ -1,0 +1,6 @@
+bucket = "REPLACE_WITH_EXISTING_STATE_BUCKET"
+key = "amplify-portfolio-hosting/production/terraform.tfstate"
+region = "us-east-1"
+encrypt = true
+use_lockfile = true
+kms_key_id = "REPLACE_WITH_STATE_KMS_KEY_ARN"
