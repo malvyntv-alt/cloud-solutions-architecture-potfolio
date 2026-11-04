@@ -12,6 +12,21 @@ A working estimated-financing application demonstrating reliable persistence, as
 
 Commands below run from `Architecture-case-studies/auto-financing-quotes-platform/`. CI workflows live at the portfolio root.
 
+
+## Business case and architecture decisions
+
+The use case is reliable estimated-quote saving with asynchronous notifications: a messaging failure should delay the notification while preserving the saved quote. The live single-region workflow was verified and the regional stack was later decommissioned to control costs. This application is not a credit decision or underwriting system.
+
+[Architecture decision records](docs/architecture/decisions/README.md) explain why the design was selected, the alternatives, intended business benefit, risks and conditions for reconsidering it.
+
+| Decision | Rationale and trade-off |
+|---|---|
+| [ADR-001: Commit quote and notification intent atomically](docs/architecture/decisions/001-transactional-outbox.md) | Separates successful quote persistence from notification availability and provides a recoverable record of notification intent. SQS is at least once. |
+| [ADR-002: Use managed relational data and independent compute roles](docs/architecture/decisions/002-managed-services.md) | Retains the existing Python/WSGI and relational transaction model while separating web requests from asynchronous work. Managed services reduce infrastructure administration. Aurora, ALB, Fargate and NAT can incur idle costs. |
+| [ADR-003: Separate bootstrap ownership from regional workload state](docs/architecture/decisions/003-deployment-boundaries.md) | Supports application cleanup without intentionally deleting the state/identity foundation, and makes resource ownership explicit. Backend keys and folder names are not account isolation. |
+| [ADR-004: Authenticate at the ALB and restrict quote ownership in the application](docs/architecture/decisions/004-authentication-and-private-compute.md) | Uses managed authentication and explicit resource ownership checks while limiting direct network access to backend services. Authentication does not replace per-record authorization. |
+| [ADR-005: Keep demo cost separate from unverified HA and regional recovery targets](docs/architecture/decisions/005-demo-ha-and-recovery-scope.md) | Allows a real workflow demonstration with explicit teardown and controlled scope. Preserves a path for later reliability work without claiming it is complete. Demo has one database instance, initial web task, publisher and shared NAT. |
+
 ## Run locally
 
 Python 3.12+; local mode uses the standard library and SQLite.

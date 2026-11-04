@@ -18,3 +18,7 @@ Every resource has one owner. API owns Lambda/API log groups; monitoring owns al
 Public API request bodies allow only page=home and are limited to 512 bytes in Lambda. API ingress still has the service's request limits; this validation is not a pre-ingress firewall. Errors omit payload and credential details. SDK write retries and browser retries are disabled, but that does not make counts exact.
 
 Official references: [Amplify monorepos](https://docs.aws.amazon.com/amplify/latest/userguide/monorepo-configuration.html), [DynamoDB counters](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html), [HTTP API throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-throttling.html).
+
+## Decision records
+
+See the [architecture decision records](decisions/README.md) for business context, alternatives, benefits, risks and reconsideration triggers.

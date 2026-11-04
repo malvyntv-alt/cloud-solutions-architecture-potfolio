@@ -23,3 +23,7 @@ SQS failures delay email without undoing saves. Lost acknowledgments can duplica
 The inherited PNG depicts unimplemented Region B, Global Database, identity federation/replication, isolated archives/backups, broader endpoints and pricing data. Email currently contains an app link. DNS resolves names rather than proxying HTTP. Correct replication arrows when replacing the illustration.
 
 See [decisions](decisions/README.md) and [DR roadmap](../operations/recovery-roadmap.md).
+
+## Decision records
+
+See the [architecture decision records](decisions/README.md) for business context, alternatives, benefits, risks and reconsideration triggers.

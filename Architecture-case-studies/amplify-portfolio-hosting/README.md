@@ -8,6 +8,22 @@ Public portfolio for malvernvito.com, with an approximate page-view counter. The
 
 [Portfolio home](../../README.md) · [Architecture](docs/architecture/overview.md) · [Deployment](docs/deployment.md) · [Security and cost](docs/security-and-cost.md) · [Validation](docs/evidence/validation.md)
 
+
+## Business case and architecture decisions
+
+The use case is a public professional portfolio with managed HTTPS hosting and an approximate page-view indicator. Visitors do not need an account; the site remains usable when the counter is unavailable. Page views are not unique visitors or an audited business metric.
+
+[Architecture decision records](docs/architecture/decisions/README.md) explain why the design was selected, the alternatives, intended business benefit, risks and conditions for reconsidering it.
+
+| Decision | Rationale and trade-off |
+|---|---|
+| [ADR-001: Use Amplify for the public portfolio](docs/architecture/decisions/001-managed-static-hosting.md) | Managed static delivery and domain workflow with a source-based release path. Reuses the existing site rather than creating an unnecessary application framework. Repository connection, monorepo build paths and embedded frontend configuration still need ownership. |
+| [ADR-002: Use an atomic DynamoDB aggregate for approximate views](docs/architecture/decisions/002-approximate-page-views.md) | Durable atomic updates fit the simple one-key access pattern with no running application server. Bots, refreshes and repeated requests inflate counts. |
+| [ADR-003: Keep the portfolio public and minimize application-collected visitor data](docs/architecture/decisions/003-anonymous-access-and-data-minimization.md) | Avoids sign-in friction and unnecessary identity/history storage for the page-view feature. The API is intentionally callable outside the website. |
+| [ADR-004: Keep the counter runtime outside a customer VPC](docs/architecture/decisions/004-vpc-free-counter-and-scoped-iam.md) | Avoids NAT/interface endpoint infrastructure and Lambda ENI lifecycle work for a small serverless counter. Uses managed regional endpoints and does not satisfy private-only networking requirements. |
+| [ADR-005: Stage the custom domain and assign one owner per resource](docs/architecture/decisions/005-domain-and-resource-ownership.md) | Makes rollout and rollback easier to reason about and limits conflicting ownership. Hosting prevent_destroy and table deletion protection reduce accidental deletion. Certificate validation, DNS delegation and existing mail/verification records need independent review. |
+| [ADR-006: Separate website releases from infrastructure changes and degrade gracefully](docs/architecture/decisions/006-controlled-releases-and-counter-fallback.md) | Allows content review before release and preserves the primary portfolio experience during a counter problem. Manual releases can lag source and can ship blank/stale endpoint configuration without checks. |
+
 ## Architecture
 
 ```mermaid
