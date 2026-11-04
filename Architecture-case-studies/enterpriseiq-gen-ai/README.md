@@ -1,6 +1,35 @@
-# EnterpriseIQ — AWS GenAI Knowledge Assistant
+# EnterpriseIQ - AI Knowledge Assistant
 
 **Status:** DEV API and Amplify-hosted React UI are deployed. Authenticated CLI/local-browser answers and hosted UI rendering are user-confirmed; hosted authenticated answer evidence is pending. See the [portfolio case study and trade-offs](docs/portfolio/README.md), [hosting instructions](architecture/frontend-hosting.md) and [progress](architecture/progress.md).
+
+
+## Business use case
+
+EnterpriseIQ is a chatbot that helps employees find answers in internal policies and documents using plain-language questions. It generates answers from retrieved document content and displays source references so users can review the supporting material. This personal AWS demonstration uses fictional company policies and invite-only sign-in.
+
+**Example:** "What is the disaster recovery RTO?" The fictional policy specifies **60 minutes**. The assistant answers using retrieved context and displays policy references. The value hypothesis is less time searching documents and fewer repetitive questions to specialists; productivity gains and ROI have not been measured.
+
+## Executive and interview walkthrough
+
+| Walkthrough stage | What to explain | Supporting material |
+|---|---|---|
+| Business case | Users, policy-search problem, value hypothesis and success measures | [Executive brief](docs/portfolio/executive-brief.md) |
+| Architecture | Sign-in, protected API, retrieval, answer generation and ingestion | [AWS-icon diagram](docs/portfolio/diagrams/README.md) |
+| Decisions | Why this design, alternatives, business benefits and consequences | [Architecture decision records](docs/portfolio/adr/README.md) |
+| Trade-offs | Cost, security, answer quality and operational limits | [Trade-off matrix](docs/portfolio/trade-offs.md) |
+| Results | Verified behavior and gaps; separate tests from live evidence | [Evidence register](docs/portfolio/evidence/README.md) |
+| Next investment | Authorization, evaluation, budgets and operational pilot gates | [Evaluation plan](docs/portfolio/evaluation-plan.md) |
+
+[8-10 minute interview walkthrough and questions](docs/portfolio/interview-walkthrough.md).
+
+### Key architecture decisions
+
+- [ADR-001: RAG for policy questions](docs/portfolio/adr/001-rag.md): refresh knowledge through ingestion; evaluate relevance and unsupported answers.
+- [ADR-002: Managed, VPC-free runtime](docs/portfolio/adr/002-managed-runtime.md): reduce infrastructure management for this workload; revisit for private connectivity.
+- [ADR-003: Authentication boundary](docs/portfolio/adr/003-authentication-boundary.md): protect the API; document-level authorization remains required for differentiated private data.
+- [ADR-004: Stateless API](docs/portfolio/adr/004-stateless-api.md): limit initial persistence scope; contextual follow-ups are deferred.
+- [ADR-005: Retrieval and model baseline](docs/portfolio/adr/005-retrieval-model-baseline.md): working S3 Vectors / Nova Lite integration; comparative benchmarks remain pending.
+- [ADR-006: DEV WAF cost decision](docs/portfolio/adr/006-dev-waf-cost.md): remove app-specific WAF for demo cost control; revisit as exposure and requirements change.
 
 ## Approved networking mode: standard (VPC-free)
 
