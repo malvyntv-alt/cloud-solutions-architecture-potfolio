@@ -1,0 +1,2 @@
+# Local sign-in tool only; not included in the Lambda archive.
+pycognito>=2024.5.1,<2027

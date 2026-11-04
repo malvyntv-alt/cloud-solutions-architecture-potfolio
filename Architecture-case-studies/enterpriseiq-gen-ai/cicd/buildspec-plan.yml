@@ -1,0 +1,26 @@
+version: 0.2
+env:
+  variables:
+    ENV: dev
+phases:
+  install:
+    commands:
+      - terraform version
+  pre_build:
+    commands:
+      - bash cicd/scripts/validate-env.sh "$ENV"
+      - cd "terraform/environments/$ENV"
+      - terraform init -input=false -backend-config=backend.hcl
+      - terraform fmt -check -recursive
+      - terraform validate
+  build:
+    commands:
+      - terraform plan -input=false -out=tfplan
+artifacts:
+  base-directory: terraform/environments
+  files:
+    - '**/tfplan'
+    - '**/*.tf'
+    - '**/*.tfvars'
+    - '**/backend.hcl'
+    - '../modules/**/*'

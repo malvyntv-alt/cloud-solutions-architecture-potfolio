@@ -1,0 +1,15 @@
+version: 0.2
+env:
+  variables:
+    ENV: dev
+phases:
+  install:
+    commands:
+      - terraform version
+  build:
+    commands:
+      - bash cicd/scripts/validate-env.sh "$ENV"
+      - cd "terraform/environments/$ENV"
+      - terraform init -input=false -backend-config=backend.hcl
+      - test -f tfplan
+      - terraform apply -input=false tfplan

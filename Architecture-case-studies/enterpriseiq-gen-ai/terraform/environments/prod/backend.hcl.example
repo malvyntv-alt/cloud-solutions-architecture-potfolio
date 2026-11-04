@@ -1,0 +1,6 @@
+# Supply an existing S3 state bucket. Keep dev/prod state in separate keys.
+bucket = "enterprise-gen-ai-chatbot-bucket"
+key = "enterpriseiq/prod/terraform.tfstate"
+region = "us-east-1"
+use_lockfile = true
+encrypt = true

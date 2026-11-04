@@ -1,0 +1,17 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars.local
+backend.hcl
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+*.zip
+build/
+node_modules/
+dist/
+.env.local
+!terraform/environments/dev/terraform.tfvars
+!terraform/environments/prod/terraform.tfvars
