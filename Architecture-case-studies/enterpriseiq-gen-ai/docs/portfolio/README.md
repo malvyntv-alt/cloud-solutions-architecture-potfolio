@@ -3,7 +3,6 @@
 A repository-ready account of a serverless AWS retrieval-augmented generation demonstration. Evidence date: November 3, 2026 (America/Chicago).
 
 - [Executive business brief](executive-brief.md): use case, value hypothesis and pilot gates.
-- [Interview walkthrough](interview-walkthrough.md): 8-10 minute speaker notes and questions.
 - [Architecture decision records](adr/README.md): alternatives, benefits, consequences and revisit triggers.
 - [Case study](case-study.md): problem, implementation, outcomes and limitations.
 - [Architecture](architecture.md): request/data paths and trust boundaries.

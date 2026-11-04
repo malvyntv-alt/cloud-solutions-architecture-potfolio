@@ -11,4 +11,4 @@ These retrospective records explain the implemented DEV decisions in business te
 | [ADR-005](005-retrieval-model-baseline.md) | Use S3 Vectors and Nova Lite as the DEV baseline | Accepted for DEV |
 | [ADR-006](006-dev-waf-cost.md) | Disable app-specific WAF for the low-volume DEV demonstration | Accepted for DEV |
 
-For an interview, explain the business problem first, walk the [architecture diagram](../diagrams/README.md), then choose two or three decisions and their consequences. The [executive brief](../executive-brief.md) describes business value and pilot gates; the [walkthrough](../interview-walkthrough.md) provides speaker notes.
+The [architecture diagram](../diagrams/README.md) shows the design. The [executive brief](../executive-brief.md) describes business value and pilot gates. Each decision record explains its context, alternatives and consequences.

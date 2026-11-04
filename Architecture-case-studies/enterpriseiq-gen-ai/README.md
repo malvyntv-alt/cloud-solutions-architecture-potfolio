@@ -9,9 +9,9 @@ EnterpriseIQ is a chatbot that helps employees find answers in internal policies
 
 **Example:** "What is the disaster recovery RTO?" The fictional policy specifies **60 minutes**. The assistant answers using retrieved context and displays policy references. The value hypothesis is less time searching documents and fewer repetitive questions to specialists; productivity gains and ROI have not been measured.
 
-## Executive and interview walkthrough
+## Business case and architecture decisions
 
-| Walkthrough stage | What to explain | Supporting material |
+| Topic | Focus | Supporting material |
 |---|---|---|
 | Business case | Users, policy-search problem, value hypothesis and success measures | [Executive brief](docs/portfolio/executive-brief.md) |
 | Architecture | Sign-in, protected API, retrieval, answer generation and ingestion | [AWS-icon diagram](docs/portfolio/diagrams/README.md) |
@@ -20,7 +20,6 @@ EnterpriseIQ is a chatbot that helps employees find answers in internal policies
 | Results | Verified behavior and gaps; separate tests from live evidence | [Evidence register](docs/portfolio/evidence/README.md) |
 | Next investment | Authorization, evaluation, budgets and operational pilot gates | [Evaluation plan](docs/portfolio/evaluation-plan.md) |
 
-[8-10 minute interview walkthrough and questions](docs/portfolio/interview-walkthrough.md).
 
 ### Key architecture decisions
 
