@@ -1,0 +1,35 @@
+{
+  "captured_at_utc": "2026-11-04T01:38:06.376148+00:00",
+  "scope": "Local offline checks; no authenticated AWS question submitted",
+  "expected_suite_counts": {
+    "backend": 28,
+    "frontend": 8
+  },
+  "checks": [
+    {
+      "check": "backend-unit-tests",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "frontend-tests",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "frontend-build",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "terraform-format",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "terraform-dev-validation",
+      "exit_code": 0,
+      "passed": true
+    }
+  ]
+}

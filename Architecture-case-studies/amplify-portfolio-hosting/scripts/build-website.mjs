@@ -14,7 +14,7 @@ if (endpoint) {
 }
 const output = path.join(root, "build", "site");
 await mkdir(output, { recursive: true });
-for (const file of ["index.html", "counter.js"]) {
+for (const file of ["index.html", "enterpriseiq.html", "counter.js"]) {
   await copyFile(path.join(root, "website", file), path.join(output, file));
 }
 await writeFile(path.join(output, "counter-config.js"),

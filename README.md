@@ -59,3 +59,6 @@ Run `python scripts/verify-portfolio.py` from the portfolio root for link and pu
 Root workflows validate the imported project. Image publishing is manual and requires this portfolio repository's OIDC trust and GitHub variables. No workflow creates or destroys AWS infrastructure.
 
 This portfolio was assembled locally without copying deployment credentials, state, private tfvars, provider caches or raw logs.
+
+EnterpriseIQ now includes a [case study, trade-offs and sanitized evidence](Architecture-case-studies/enterpriseiq-gen-ai/docs/portfolio/README.md).
+

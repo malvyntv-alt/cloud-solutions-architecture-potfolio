@@ -1,19 +1,19 @@
 # EnterpriseIQ — AWS GenAI Knowledge Assistant
 
-**Status:** The authenticated DEV RAG API is deployed and tested successfully (user-confirmed). The React frontend is implemented with Cognito sign-in, chat and source references, and the user confirmed successful browser results. Amplify hosting remains pending. See [frontend instructions](frontend/README.md), [project progress](architecture/progress.md) and [DEV API deployment instructions](architecture/dev-api-deployment.md).
+**Status:** DEV API and Amplify-hosted React UI are deployed. Authenticated CLI/local-browser answers and hosted UI rendering are user-confirmed; hosted authenticated answer evidence is pending. See the [portfolio case study and trade-offs](docs/portfolio/README.md), [hosting instructions](architecture/frontend-hosting.md) and [progress](architecture/progress.md).
 
 ## Approved networking mode: standard (VPC-free)
 
 Both environments use `network_mode = "standard"` in `terraform.tfvars`. Terraform rejects unsupported network modes; the project creates **no customer VPC, subnets, NAT Gateway, Internet Gateway, security groups, or VPC endpoints**. This is an explicit architecture decision, not an omission.
 
-Planned application request path: browser → Amplify-hosted React app → API Gateway HTTPS + Cognito/JWT authorization → Lambda (no `vpc_config`) → Bedrock Knowledge Base / S3 Vectors; DynamoDB stores chat history. Managed AWS APIs are accessed through their normal regional endpoints. Keep S3 private, IAM least-privileged, log access, limit cross-user document retrieval, and protect public APIs with authorization and throttling.
+Application request path: browser → Amplify-hosted React app → API Gateway HTTPS + Cognito/JWT authorization → Lambda (no `vpc_config`) → Bedrock Knowledge Base / S3 Vectors; persistent chat history is not yet implemented. Managed AWS APIs are accessed through their normal regional endpoints. Keep S3 private, IAM least-privileged, log access, limit cross-user document retrieval, and protect public APIs with authorization and throttling.
 
 DEV and PROD remain in the **same existing AWS account**, with separate Terraform state keys, distinct resource names and IAM deployment roles. Production deployments require manual approval and an exact saved plan; the `ENV` variable is only a selector, not permission to deploy to production.
 
 See `architecture/decisions.md` for VPC-free trade-offs and criteria to revisit networking.
 
 ## Architecture
-S3 documents → Amazon Bedrock Knowledge Base (Titan Embeddings v2) → Amazon S3 Vectors. The Python CLI supports retrieval and generation with Nova Lite. The Lambda adapter and DEV API Gateway/Cognito infrastructure are deployed. The React UI is implemented locally; hosting, DynamoDB history, monitoring alarms and CodePipeline remain pending.
+S3 documents → Amazon Bedrock Knowledge Base (Titan Embeddings v2) → Amazon S3 Vectors. The Python CLI supports retrieval and generation with Nova Lite. The Lambda adapter and DEV API Gateway/Cognito infrastructure are deployed. The React UI is hosted on Amplify. DynamoDB history, monitoring alarms and CodePipeline remain pending.
 
 ## Prerequisites
 - AWS account and permission to create Bedrock Knowledge Bases, S3 Vectors, S3, IAM.

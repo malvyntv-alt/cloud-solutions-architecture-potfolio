@@ -35,7 +35,7 @@ npm.cmd run build
 npm.cmd audit
 ```
 
-`dist/` is the static hosting artifact. Before hosting on Amplify, provide the three public build-time variables and add the exact HTTPS hosting origin to Terraform's `chat_allowed_origins`, preserving localhost if still needed. Review and apply that saved DEV plan. Hosting has not been configured or deployed in this milestone.
+`dist/` is the static hosting artifact. Opt-in DEV Terraform hosting automatically adds the Amplify HTTPS origin to API CORS. Follow the [hosting instructions](../architecture/frontend-hosting.md) for plan review, packaging and upload. AWS deployment and hosted acceptance remain pending.
 
 Manual live acceptance: sign in, ask the DR RTO question, verify **60 minutes** and policy references, start a new conversation, and sign out. Then check a narrow browser window. Automated frontend tests mock Cognito and HTTP; they do not establish a live browser login result.
 

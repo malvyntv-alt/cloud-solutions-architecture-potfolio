@@ -13,7 +13,7 @@ module "chat_api" {
   name              = "enterpriseiq-dev"
   knowledge_base_id = module.rag.knowledge_base_id
   lambda_zip_path   = "${path.module}/../../../build/chat-lambda.zip"
-  allowed_origins   = var.chat_allowed_origins
+  allowed_origins   = distinct(concat(var.chat_allowed_origins, var.enable_frontend_hosting ? [local.frontend_origin] : []))
 }
 output "chat_api" {
   value = var.enable_chat_api ? {

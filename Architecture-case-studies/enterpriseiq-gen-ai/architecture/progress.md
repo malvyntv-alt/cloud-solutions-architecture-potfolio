@@ -48,3 +48,17 @@ Eight mocked frontend tests passed, including token selection, new-password sign
 ## Validated application checkpoint
 
 The user confirmed the authenticated CLI returned the expected 60-minute RTO and the local browser app successfully signed in and returned results. This closes the live API and browser acceptance checks previously marked pending. Frontend hosting remains the next delivery milestone.
+
+## DEV hosting preparation - November 3, 2026
+
+Added opt-in Amplify WEB hosting and dev branch, automatic API CORS origin, frontend ZIP packaging, and [deployment instructions](frontend-hosting.md). Keep both enable flags true on future plans while resources are in use. Terraform validation and formatting passed; 8 frontend and 28 backend tests passed. The frontend production build and ZIP integrity/root index.html checks passed. No AWS plan, apply or upload was run; hosted acceptance remains pending.
+
+
+## Hosted DEV and cost preference - November 3, 2026
+
+User confirmed the hosted app renders after repair. Missing hosted JS/CSS returned 404 with the PowerShell-produced archive; repacking with Python and deploying job 3 succeeded, with JS/CSS returning 200. Packaging now uses Python zipfile. Per user request to minimize costs, disassociated the app-specific WAF and deleted its CreatedByAmplify web ACL. Other account WAF resources were left unchanged. Hosted authenticated answer acceptance is still pending.
+
+
+## Portfolio documentation - November 3, 2026
+
+Created docs/portfolio with case study, architecture diagram, trade-off matrix, evidence register, synthetic evaluation plan and publication guide. Fresh sanitized JSON records capture local check results, successful Amplify deployment, hosted asset HTTP responses, WAF association absence and unauthenticated API rejection. Prepared an EnterpriseIQ entry and standalone case-study page in the sibling portfolio website; built with the existing counter endpoint and all five counter tests passed. Website source has not been published. Bitbucket destination is awaiting user input; the existing GitHub remote is unchanged. Hosted authenticated answer capture and screenshots remain pending.
