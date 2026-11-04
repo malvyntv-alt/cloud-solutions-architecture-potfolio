@@ -8,8 +8,9 @@ AWS architecture projects demonstrating infrastructure as code, application reli
 |---|---|---|
 | [Auto-Financing Quotes Platform](Architecture-case-studies/auto-financing-quotes-platform/README.md) | Terraform, ECS Fargate, Aurora PostgreSQL, Cognito, transactional outbox, SQS, Lambda and SES | [Live quote-to-email verification](Architecture-case-studies/auto-financing-quotes-platform/docs/evidence/dated-exercises/2026-10-29-live-verification/README.md) |
 | [Amplify Portfolio Hosting](Architecture-case-studies/amplify-portfolio-hosting/README.md) | Amplify, API Gateway, Lambda, DynamoDB, IAM and modular Terraform | [Deployed: live verification](Architecture-case-studies/amplify-portfolio-hosting/docs/evidence/2026-10-30-live-deployment/README.md) |
+| [EnterpriseIQ GenAI Knowledge Assistant](Architecture-case-studies/enterpriseiq-gen-ai/README.md) | Bedrock RAG, S3 Vectors, Nova Lite, Cognito, API Gateway, Lambda, React and Terraform | [DEV evidence and validation](Architecture-case-studies/enterpriseiq-gen-ai/docs/portfolio/evidence/README.md) |
 
-The live exercise verified signed-in quote saving, sequential retry behavior and email receipt on the existing standalone AWS deployment, followed by verified regional teardown. Moving code into this portfolio does not create a second stack. Failure/recovery and performance remain unmeasured; the record states those limits.
+The Auto-Financing live exercise verified signed-in quote saving, sequential retry behavior and email receipt on the existing standalone AWS deployment, followed by verified regional teardown. Moving code into this portfolio does not create a second stack. Failure/recovery and performance remain unmeasured; the record states those limits.
 
 ## Explore
 
@@ -21,22 +22,15 @@ The live exercise verified signed-in quote saving, sequential retry behavior and
 
 ```text
 cloud-solutions-architecture-portfolio/
-├── README.md
-├── Architecture-case-studies/
-│   ├── README.md
-│   └── auto-financing-quotes-platform/
-│       ├── README.md
-│       ├── app/
-│       ├── web/
-│       ├── infra/
-│       ├── containers/
-│       ├── migrations/
-│       ├── scripts/
-│       ├── tests/
-│       └── docs/
-├── .github/workflows/
-├── scripts/
-└── docs/
+|-- README.md
+|-- Architecture-case-studies/
+|   |-- README.md
+|   |-- auto-financing-quotes-platform/
+|   |-- amplify-portfolio-hosting/
+|   `-- enterpriseiq-gen-ai/
+|-- .github/workflows/
+|-- scripts/
+`-- docs/
 ```
 
 Projects are ordinary folders in one Git repository. They do not contain nested .git directories or submodules. Future projects should be siblings of auto-financing-quotes-platform inside Architecture-case-studies/.
@@ -59,6 +53,3 @@ Run `python scripts/verify-portfolio.py` from the portfolio root for link and pu
 Root workflows validate the imported project. Image publishing is manual and requires this portfolio repository's OIDC trust and GitHub variables. No workflow creates or destroys AWS infrastructure.
 
 This portfolio was assembled locally without copying deployment credentials, state, private tfvars, provider caches or raw logs.
-
-EnterpriseIQ now includes a [case study, trade-offs and sanitized evidence](Architecture-case-studies/enterpriseiq-gen-ai/docs/portfolio/README.md).
-
