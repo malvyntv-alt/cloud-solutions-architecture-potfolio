@@ -1,5 +1,9 @@
 # Deployed DEV architecture
 
+![EnterpriseIQ AWS architecture](diagrams/enterpriseiq-aws-architecture.png)
+
+[Scalable SVG and editable source](diagrams/README.md). The AWS-icon diagram shows the same deployed DEV design as the Mermaid flow below.
+
 ```mermaid
 flowchart LR
   U[Browser] --> H[Amplify: React static files]

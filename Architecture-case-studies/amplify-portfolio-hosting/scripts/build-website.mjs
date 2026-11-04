@@ -20,3 +20,5 @@ for (const file of ["index.html", "enterpriseiq.html", "counter.js"]) {
 await writeFile(path.join(output, "counter-config.js"),
   "window.PORTFOLIO_COUNTER_CONFIG = Object.freeze(" + JSON.stringify({ apiBaseUrl }) + ");\n");
 console.log("Portfolio built. Counter " + (apiBaseUrl ? "configured." : "disabled until API is configured."));
+
+await copyFile(path.join(root, "../enterpriseiq-gen-ai/docs/portfolio/diagrams/enterpriseiq-aws-architecture.png"), path.join(output, "enterpriseiq-architecture.png"));

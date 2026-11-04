@@ -13,6 +13,10 @@ DEV and PROD remain in the **same existing AWS account**, with separate Terrafor
 See `architecture/decisions.md` for VPC-free trade-offs and criteria to revisit networking.
 
 ## Architecture
+
+![EnterpriseIQ AWS service architecture](docs/portfolio/diagrams/enterpriseiq-aws-architecture.png)
+
+[Scalable diagram and editable source](docs/portfolio/diagrams/README.md).
 S3 documents → Amazon Bedrock Knowledge Base (Titan Embeddings v2) → Amazon S3 Vectors. The Python CLI supports retrieval and generation with Nova Lite. The Lambda adapter and DEV API Gateway/Cognito infrastructure are deployed. The React UI is hosted on Amplify. DynamoDB history, monitoring alarms and CodePipeline remain pending.
 
 ## Prerequisites
