@@ -1,5 +1,12 @@
 # Enterprise Hybrid Network architecture
 
+## Conceptual reference diagram
+
+![Enterprise AWS networking and hybrid connectivity](enterprise-hybrid-network.png)
+
+Conceptual architecture reference supplied for the portfolio. ALB/ECS, public workload subnets, Aurora, bastion, shared PrivateLink and Direct Connect illustrate design options and were not deployed in this lab. The tested implementation uses private EC2 listeners, SSM endpoints, VPN/BGP and Resolver endpoints; see the dated validation evidence.
+
+
 > Live-session update: the full lab was deployed and tested on November 6, 2026. See [observed results and cleanup status](live-validation-2026-11-06.md); failover recovery remains unfinished. Earlier pending-status text below describes the predeployment baseline.
 
 

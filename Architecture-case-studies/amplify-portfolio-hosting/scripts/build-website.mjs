@@ -29,3 +29,5 @@ for (const [source, target] of [
 ]) {
   await copyFile(path.join(root, "../enterprise-hybrid-network/docs/evidence", source), path.join(output, target));
 }
+
+await copyFile(path.join(root, "../enterprise-hybrid-network/docs/enterprise-hybrid-network.png"), path.join(output, "enterprise-hybrid-network-architecture.png"));

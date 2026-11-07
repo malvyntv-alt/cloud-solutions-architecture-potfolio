@@ -23,6 +23,10 @@ Read the [dated validation report](docs/live-validation-2026-11-06.md) for sampl
 
 ## Architecture
 
+![Enterprise AWS networking and hybrid connectivity conceptual architecture](docs/enterprise-hybrid-network.png)
+
+Conceptual architecture reference supplied for the portfolio. ALB/ECS, public workload subnets, Aurora, bastion, shared PrivateLink and Direct Connect illustrate design options and were not deployed in this lab. The tested implementation uses private EC2 listeners, SSM endpoints, VPN/BGP and Resolver endpoints; see the dated validation evidence.
+
 ```mermaid
 flowchart LR
   subgraph DC["Simulated Dallas data center: separate VPC"]
