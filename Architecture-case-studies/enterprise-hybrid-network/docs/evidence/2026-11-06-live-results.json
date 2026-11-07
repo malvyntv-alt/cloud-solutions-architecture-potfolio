@@ -1,0 +1,929 @@
+{
+  "captured_utc": "2026-11-07T01:07:46.951135+00:00",
+  "tcp_matrix": {
+    "development-0": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": true, \"development-1\": true, \"production-0\": false, \"production-1\": false, \"restricted-0\": false, \"restricted-1\": false, \"shared-0\": true, \"shared-1\": true, \"onprem\": false}"
+    },
+    "development-1": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": true, \"development-1\": true, \"production-0\": false, \"production-1\": false, \"restricted-0\": false, \"restricted-1\": false, \"shared-0\": true, \"shared-1\": true, \"onprem\": false}"
+    },
+    "production-0": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": false, \"development-1\": false, \"production-0\": true, \"production-1\": true, \"restricted-0\": true, \"restricted-1\": true, \"shared-0\": true, \"shared-1\": true, \"onprem\": true}"
+    },
+    "production-1": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": false, \"development-1\": false, \"production-0\": true, \"production-1\": true, \"restricted-0\": true, \"restricted-1\": true, \"shared-0\": true, \"shared-1\": true, \"onprem\": true}"
+    },
+    "restricted-0": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": false, \"development-1\": false, \"production-0\": true, \"production-1\": true, \"restricted-0\": true, \"restricted-1\": true, \"shared-0\": false, \"shared-1\": false, \"onprem\": false}"
+    },
+    "restricted-1": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": false, \"development-1\": false, \"production-0\": true, \"production-1\": true, \"restricted-0\": true, \"restricted-1\": true, \"shared-0\": false, \"shared-1\": false, \"onprem\": false}"
+    },
+    "shared-0": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": true, \"development-1\": true, \"production-0\": true, \"production-1\": true, \"restricted-0\": false, \"restricted-1\": false, \"shared-0\": true, \"shared-1\": true, \"onprem\": true}"
+    },
+    "shared-1": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": true, \"development-1\": true, \"production-0\": true, \"production-1\": true, \"restricted-0\": false, \"restricted-1\": false, \"shared-0\": true, \"shared-1\": true, \"onprem\": true}"
+    },
+    "onprem": {
+      "status": "Success",
+      "output": "active\n{\"development-0\": false, \"development-1\": false, \"production-0\": true, \"production-1\": true, \"restricted-0\": false, \"restricted-1\": false, \"shared-0\": true, \"shared-1\": true, \"onprem\": true}"
+    }
+  },
+  "dns_from_aws": {
+    "development-0": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"[Errno -2] Name or service not known\", \"shared.aws.lab.test\": \"[Errno -2] Name or service not known\"}\n",
+      "error": ""
+    },
+    "development-1": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"[Errno -2] Name or service not known\", \"shared.aws.lab.test\": \"[Errno -2] Name or service not known\"}\n",
+      "error": ""
+    },
+    "production-0": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"172.16.1.74\", \"shared.aws.lab.test\": \"10.30.1.38\"}\n",
+      "error": ""
+    },
+    "production-1": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"172.16.1.74\", \"shared.aws.lab.test\": \"10.30.1.38\"}\n",
+      "error": ""
+    },
+    "restricted-0": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"[Errno -2] Name or service not known\", \"shared.aws.lab.test\": \"[Errno -2] Name or service not known\"}\n",
+      "error": ""
+    },
+    "restricted-1": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"[Errno -2] Name or service not known\", \"shared.aws.lab.test\": \"[Errno -2] Name or service not known\"}\n",
+      "error": ""
+    },
+    "shared-0": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"172.16.1.74\", \"shared.aws.lab.test\": \"10.30.1.38\"}\n",
+      "error": ""
+    },
+    "shared-1": {
+      "status": "Success",
+      "output": "{\"host.onprem.lab.test\": \"172.16.1.74\", \"shared.aws.lab.test\": \"10.30.1.38\"}\n",
+      "error": ""
+    }
+  },
+  "dns_from_onprem": {
+    "status": "Success",
+    "output": "{\"name\": \"host.onprem.lab.test\", \"transport\": \"udp\", \"rcode\": 0, \"expected_answer_found\": true}\n{\"name\": \"host.onprem.lab.test\", \"transport\": \"tcp\", \"rcode\": 0, \"expected_answer_found\": true}\n{\"name\": \"shared.aws.lab.test\", \"transport\": \"udp\", \"rcode\": 0, \"expected_answer_found\": true}\n{\"name\": \"shared.aws.lab.test\", \"transport\": \"tcp\", \"rcode\": 0, \"expected_answer_found\": true}\n"
+  },
+  "tgw_routes": {
+    "development": [
+      {
+        "cidr": "10.30.0.0/16",
+        "type": "static"
+      }
+    ],
+    "production": [
+      {
+        "cidr": "10.30.0.0/16",
+        "type": "static"
+      },
+      {
+        "cidr": "10.40.0.0/16",
+        "type": "static"
+      },
+      {
+        "cidr": "172.16.0.10/32",
+        "type": "propagated"
+      },
+      {
+        "cidr": "172.16.1.0/24",
+        "type": "propagated"
+      }
+    ],
+    "restricted": [
+      {
+        "cidr": "10.10.0.0/16",
+        "type": "static"
+      }
+    ],
+    "shared": [
+      {
+        "cidr": "10.10.0.0/16",
+        "type": "static"
+      },
+      {
+        "cidr": "10.20.0.0/16",
+        "type": "static"
+      },
+      {
+        "cidr": "172.16.0.10/32",
+        "type": "propagated"
+      },
+      {
+        "cidr": "172.16.1.0/24",
+        "type": "propagated"
+      }
+    ]
+  },
+  "flow_logs": {
+    "count": 20,
+    "fields": "srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status",
+    "samples": [
+      "10.10.1.228 10.40.2.205 8080 37108 6 3 164 1794013102 1794013125 ACCEPT OK",
+      "10.40.2.205 10.10.1.228 37108 8080 6 4 216 1794013102 1794013125 ACCEPT OK",
+      "10.40.1.68 10.40.2.205 443 44484 6 11 3323 1794013102 1794013125 ACCEPT OK",
+      "10.40.2.205 10.40.1.68 44484 443 6 13 4151 1794013102 1794013125 ACCEPT OK",
+      "10.40.1.28 10.40.2.205 443 45046 6 15 6877 1794013129 1794013129 ACCEPT OK",
+      "10.40.2.205 10.40.1.28 45046 443 6 17 4846 1794013129 1794013129 ACCEPT OK",
+      "10.40.1.28 10.40.2.205 443 45046 6 4 232 1794013191 1794013195 ACCEPT OK",
+      "10.40.2.205 10.40.1.28 45046 443 6 4 232 1794013191 1794013195 ACCEPT OK",
+      "10.40.1.68 10.40.2.205 443 44484 6 5 293 1794013191 1794013195 ACCEPT OK",
+      "10.40.2.205 10.40.1.68 44484 443 6 6 349 1794013191 1794013195 ACCEPT OK",
+      "10.40.1.68 10.40.2.205 443 44484 6 5 326 1794013256 1794013257 ACCEPT OK",
+      "10.40.2.205 10.40.1.68 44484 443 6 7 438 1794013256 1794013257 ACCEPT OK",
+      "10.40.1.68 10.40.2.205 443 44484 6 5 293 1794013322 1794013323 ACCEPT OK",
+      "10.40.2.205 10.40.1.68 44484 443 6 6 349 1794013322 1794013323 ACCEPT OK",
+      "10.40.1.68 10.40.2.205 443 44484 6 5 293 1794013388 1794013389 ACCEPT OK",
+      "10.40.2.205 10.40.1.68 44484 443 6 6 349 1794013388 1794013389 ACCEPT OK",
+      "10.40.1.28 10.40.2.205 443 58314 6 16 6929 1794013420 1794013421 ACCEPT OK",
+      "10.40.2.205 10.40.1.28 58314 443 6 18 4898 1794013420 1794013421 ACCEPT OK",
+      "10.40.1.68 10.40.2.205 443 44484 6 4 241 1794013453 1794013454 ACCEPT OK",
+      "10.40.2.205 10.40.1.68 44484 443 6 5 297 1794013453 1794013454 ACCEPT OK"
+    ]
+  },
+  "failover": {
+    "aws1": {
+      "status": "Success",
+      "samples": [
+        {
+          "utc": "2026-11-07T01:01:18.607171+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:20.610937+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:22.613781+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:24.616577+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:26.619313+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:28.622027+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:30.624278+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:32.626915+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:34.629642+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:36.632377+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:38.635043+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:40.637910+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:42.640637+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:44.643429+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:46.646131+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:48.648829+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:01:49.648953+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:50.653172+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:51.657448+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:52.661678+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:54.664384+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:55.668322+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:57.671084+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:01:59.673771+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:02:00.677206+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:02:02.680479+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:02:03.685394+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:02:05.687214+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:02:07.689896+00:00",
+          "tcp": false,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:08.694423+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:09.694550+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:10.694676+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:11.694804+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:12.694925+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:13.695040+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:14.695160+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:15.695304+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:16.695435+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:17.695557+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:18.695689+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:19.695816+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:20.695940+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:21.696071+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:22.696191+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:23.696380+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:24.696499+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:25.696626+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:26.696750+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:27.696871+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:28.696992+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:29.697107+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:30.697237+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:31.697365+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:32.697485+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:33.697599+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:34.697723+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:35.697844+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:36.697996+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:37.698106+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:38.698221+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:39.698347+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:40.698466+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:41.698596+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:42.698722+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:43.698837+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:44.698961+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:45.699080+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:46.699202+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:47.699356+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:48.699482+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:49.699595+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:50.699717+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:51.699821+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:52.699920+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:02:53.700055+00:00",
+          "tcp": true,
+          "dns": true
+        }
+      ],
+      "failed_tcp_samples": 22,
+      "failed_dns_samples": 27
+    },
+    "aws2": {
+      "status": "Success",
+      "samples": [
+        {
+          "utc": "2026-11-07T01:05:06.315572+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:08.319467+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:10.322225+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:11.327596+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:12.333249+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:14.336067+00:00",
+          "tcp": false,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:05:15.342045+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:05:16.342177+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:17.348940+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:18.354315+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:19.359465+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:20.365374+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:21.370809+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:22.375833+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:23.380955+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:24.386273+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:25.391467+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:26.397026+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:27.402568+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:28.408667+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:29.414206+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:30.419976+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:32.422673+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:33.427462+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:34.433442+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:35.439387+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:36.444929+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:37.450381+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:38.455519+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:39.460958+00:00",
+          "tcp": false,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:05:40.468235+00:00",
+          "tcp": false,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:05:41.474594+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:43.477196+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:45.479833+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:46.485905+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:47.491468+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:49.494175+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:50.499577+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:51.504880+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:53.507573+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:54.512610+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:56.515386+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:57.520554+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:58.526168+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:05:59.531400+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:06:00.537025+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:06:02.540415+00:00",
+          "tcp": false,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:06:04.543155+00:00",
+          "tcp": true,
+          "dns": false
+        },
+        {
+          "utc": "2026-11-07T01:06:05.548712+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:06.548840+00:00",
+          "tcp": false,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:07.556966+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:08.557101+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:09.557220+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:10.557341+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:11.557465+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:12.557587+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:13.557710+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:14.557847+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:15.558068+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:16.558186+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:17.558311+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:18.558437+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:19.558560+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:20.558687+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:21.558813+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:22.558932+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:23.559062+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:24.559193+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:25.559325+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:26.559455+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:27.559583+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:28.559706+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:29.559826+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:30.559953+00:00",
+          "tcp": true,
+          "dns": true
+        },
+        {
+          "utc": "2026-11-07T01:06:31.560072+00:00",
+          "tcp": true,
+          "dns": true
+        }
+      ],
+      "failed_tcp_samples": 15,
+      "failed_dns_samples": 44
+    }
+  }
+}

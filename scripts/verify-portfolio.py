@@ -5,7 +5,7 @@ import subprocess
 root = Path(__file__).resolve().parents[1]
 errors = []
 for doc in root.rglob("*.md"):
-    if any(p in {".git", ".venv", ".terraform", "__pycache__"} for p in doc.parts):
+    if any(p in {".git", ".venv", ".terraform", "__pycache__", "node_modules"} for p in doc.parts):
         continue
     for link in re.findall(r"\]\(([^)]+)\)", doc.read_text(encoding="utf-8")):
         target = link.split("#", 1)[0].strip("<>")
@@ -15,7 +15,7 @@ names = subprocess.check_output(["git", "-C", str(root), "ls-files", "-z"]).deco
 for name in filter(None, names):
     p = Path(name)
     private = (any(v in p.parts for v in (".git", ".venv", ".terraform", "__pycache__", "data", "raw"))
-               or ".tfstate" in p.name or p.name == "backend.hcl" or p.name.startswith(".env")
+               or ".tfstate" in p.name or p.name == "backend.hcl" or (p.name.startswith(".env") and not p.name.endswith(".example"))
                or p.name.endswith((".tfvars", ".tfvars.json", ".tfplan", ".log", ".pem", ".key")))
     if private:
         errors.append(f"Private/generated artifact tracked: {name}")

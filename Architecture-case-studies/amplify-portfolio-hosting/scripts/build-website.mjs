@@ -14,7 +14,7 @@ if (endpoint) {
 }
 const output = path.join(root, "build", "site");
 await mkdir(output, { recursive: true });
-for (const file of ["index.html", "enterpriseiq.html", "counter.js"]) {
+for (const file of ["index.html", "enterpriseiq.html", "enterprise-hybrid-network.html", "counter.js"]) {
   await copyFile(path.join(root, "website", file), path.join(output, file));
 }
 await writeFile(path.join(output, "counter-config.js"),
@@ -22,3 +22,10 @@ await writeFile(path.join(output, "counter-config.js"),
 console.log("Portfolio built. Counter " + (apiBaseUrl ? "configured." : "disabled until API is configured."));
 
 await copyFile(path.join(root, "../enterpriseiq-gen-ai/docs/portfolio/diagrams/enterpriseiq-aws-architecture.png"), path.join(output, "enterpriseiq-architecture.png"));
+
+for (const [source, target] of [
+  ["2026-11-06-live-results.json", "hybrid-network-live-results.json"],
+  ["2026-11-06-cleanup.json", "hybrid-network-cleanup.json"]
+]) {
+  await copyFile(path.join(root, "../enterprise-hybrid-network/docs/evidence", source), path.join(output, target));
+}

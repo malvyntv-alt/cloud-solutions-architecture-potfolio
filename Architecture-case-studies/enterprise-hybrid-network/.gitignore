@@ -1,0 +1,16 @@
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+*.pem
+*.key
+crash.log
+crash.*.log
+*.tfbackend
+!*.tfbackend.example
+
+# Local deployment diagnostics may include sensitive resource details.
+deployment.log
+cleanup.log

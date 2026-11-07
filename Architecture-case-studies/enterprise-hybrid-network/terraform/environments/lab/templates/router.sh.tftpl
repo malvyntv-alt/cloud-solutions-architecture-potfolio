@@ -1,0 +1,89 @@
+#!/bin/bash
+set -euo pipefail
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get install -y strongswan frr python3-boto3 iptables
+cat >/etc/sysctl.d/99-hybrid.conf <<'SYSCTL'
+net.ipv4.ip_forward=1
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
+SYSCTL
+sysctl --system
+sed -i 's/^bgpd=no/bgpd=yes/' /etc/frr/daemons
+# Retrieve AWS-generated keys at runtime. Do not put PSKs in user data or logs.
+cat >/usr/local/sbin/configure-hybrid.py <<'PY'
+import boto3, pathlib, subprocess, time
+client = boto3.client('ec2', region_name='${region}')
+for attempt in range(30):
+    try:
+        vpn = client.describe_vpn_connections(VpnConnectionIds=['${vpn_id}'])['VpnConnections'][0]
+        if len(vpn['Options']['TunnelOptions']) == 2: break
+    except Exception:
+        if attempt == 29: raise
+    time.sleep(10)
+import xml.etree.ElementTree as ET
+xml = ET.fromstring(vpn['CustomerGatewayConfiguration'])
+conns = ['config setup', '  uniqueids=no']
+secrets = []
+frr = ['frr defaults traditional', 'hostname onprem-router', 'service integrated-vtysh-config', 'ip route 172.16.1.0/24 172.16.0.1', 'ip prefix-list EXPORT seq 10 permit 172.16.1.0/24', 'ip prefix-list IMPORT seq 10 permit 10.10.0.0/16', 'ip prefix-list IMPORT seq 20 permit 10.30.0.0/16', 'route-map EXPORT permit 10', ' match ip address prefix-list EXPORT', 'route-map IMPORT permit 10', ' match ip address prefix-list IMPORT', 'router bgp 65010', ' bgp router-id 172.16.0.10', ' network 172.16.1.0/24']
+%{ if dns_enabled ~}
+frr += ['ip route 172.16.0.10/32 Null0', 'ip prefix-list EXPORT seq 20 permit 172.16.0.10/32', 'router bgp 65010', ' network 172.16.0.10/32']
+%{ endif ~}
+for i, tunnel in enumerate(xml.findall('ipsec_tunnel'), 1):
+    remote = tunnel.findtext('vpn_gateway/tunnel_outside_address/ip_address')
+    local_inner = tunnel.findtext('customer_gateway/tunnel_inside_address/ip_address')
+    peer_inner = tunnel.findtext('vpn_gateway/tunnel_inside_address/ip_address')
+    psk = tunnel.findtext('ike/pre_shared_key')
+    subprocess.run(['ip','link','add',f'vti{i}','type','vti','local','172.16.0.10','remote',remote,'key',str(i)], check=True)
+    subprocess.run(['ip','addr','add',local_inner+'/30','dev',f'vti{i}'], check=True)
+    subprocess.run(['ip','link','set',f'vti{i}','up','mtu','1436'], check=True)
+    subprocess.run(['sysctl','-w',f'net.ipv4.conf.vti{i}.disable_policy=1'], check=True)
+    subprocess.run(['sysctl','-w',f'net.ipv4.conf.vti{i}.rp_filter=0'], check=True)
+    conns += [f'conn aws{i}', '  keyexchange=ikev2', '  authby=psk', '  type=tunnel', '  left=%defaultroute', '  leftid=${public_ip}', f'  right={remote}', '  leftsubnet=0.0.0.0/0', '  rightsubnet=0.0.0.0/0', '  ike=aes256-sha256-modp2048!', '  esp=aes256-sha256-modp2048!', '  ikelifetime=28800s', '  lifetime=3600s', '  dpddelay=10s', '  dpdaction=restart', '  keyingtries=%forever', f'  mark={i}', '  auto=start']
+    secrets += [f'${public_ip} {remote} : PSK "{psk}"']
+    frr += [f' neighbor {peer_inner} remote-as 64512', f' neighbor {peer_inner} timers 10 30', f' neighbor {peer_inner} route-map IMPORT in', f' neighbor {peer_inner} route-map EXPORT out']
+    subprocess.run(['iptables','-A','INPUT','-s',remote,'-p','udp','-m','multiport','--dports','500,4500','-j','ACCEPT'],check=True)
+# Only the AWS peers can reach IKE. No SSH listener is opened.
+subprocess.run(['iptables','-A','INPUT','-p','udp','-m','multiport','--dports','500,4500','-j','DROP'],check=True)
+pathlib.Path('/etc/ipsec.conf').write_text('\n'.join(conns)+'\n')
+p = pathlib.Path('/etc/ipsec.secrets'); p.touch(mode=0o600); p.chmod(0o600); p.write_text('\n'.join(secrets)+'\n')
+pathlib.Path('/etc/frr/frr.conf').write_text('\n'.join(frr)+'\n')
+PY
+cat >/etc/strongswan.d/charon-routing.conf <<'CONF'
+charon { install_routes = no }
+CONF
+cat >/etc/systemd/system/hybrid-router.service <<'UNIT'
+[Unit]
+After=network-online.target
+Wants=network-online.target
+Before=strongswan-starter.service frr.service
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/sbin/configure-hybrid.py
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
+UNIT
+systemctl daemon-reload
+systemctl enable hybrid-router.service
+systemctl start hybrid-router.service
+systemctl restart strongswan-starter frr
+
+%{ if dns_enabled ~}
+apt-get install -y dnsmasq
+cat >/etc/dnsmasq.d/hybrid.conf <<'DNS'
+bind-interfaces
+listen-address=172.16.0.10
+no-resolv
+no-hosts
+domain-needed
+# Keep failover DNS probes from being satisfied by the router cache.
+cache-size=0
+local=/onprem.lab.test/
+host-record=host.onprem.lab.test,${onprem_test_ip}
+server=/aws.lab.test/10.30.1.10@172.16.0.10
+server=/aws.lab.test/10.30.2.10@172.16.0.10
+DNS
+systemctl enable dnsmasq
+systemctl restart dnsmasq
+%{ endif ~}

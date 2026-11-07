@@ -1,0 +1,24 @@
+{
+  "vpcs": {
+    "count": 1,
+    "default_only": true
+  },
+  "active_instances": 0,
+  "eips": {
+    "count": 1,
+    "matches_predeployment_count": true
+  },
+  "network_interfaces": 0,
+  "volumes": 0,
+  "vpn": [
+    "deleted"
+  ],
+  "tgw": [
+    "deleted"
+  ],
+  "vpc_endpoints": 0,
+  "resolver_endpoints": 0,
+  "lab_log_groups": 0,
+  "verified_utc": "2026-11-07T01:14:46.590098+00:00",
+  "state_list": ""
+}

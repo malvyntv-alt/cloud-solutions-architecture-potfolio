@@ -1,0 +1,25 @@
+name: enterprise-hybrid-network-checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: Architecture-case-studies/enterprise-hybrid-network
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.16.5'
+      - run: terraform fmt -check -recursive terraform
+      - run: terraform -chdir=terraform/environments/lab init -backend=false -input=false
+      - run: terraform -chdir=terraform/environments/lab validate
+      - run: terraform -chdir=terraform/environments/lab test
+      - run: python ../../scripts/verify-portfolio.py

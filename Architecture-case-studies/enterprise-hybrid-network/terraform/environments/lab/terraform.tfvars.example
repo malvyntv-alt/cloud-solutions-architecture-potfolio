@@ -1,0 +1,10 @@
+aws_region   = "us-east-1"
+project_name = "enterprise-hybrid-network"
+owner        = "malvernvito"
+
+# Opt in after reviewing the added VPN, EC2, EIP and interface endpoint costs.
+enable_hybrid     = false
+enable_test_hosts = false
+
+# Requires both switches above; Resolver endpoint IP-hours add cost.
+enable_hybrid_dns = false

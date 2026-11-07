@@ -9,6 +9,7 @@ Projects below contain implementation and supporting architecture documentation.
 | [Auto-Financing Quotes Platform](auto-financing-quotes-platform/README.md) | Reliable quote persistence, asynchronous notifications, Terraform, authentication and operational tradeoffs |
 | [Amplify Portfolio Hosting](amplify-portfolio-hosting/README.md) | Public hosting, anonymous page views, six Terraform modules; deployed at [malvernvito.com](https://malvernvito.com/) |
 | [EnterpriseIQ AI Knowledge Assistant](enterpriseiq-gen-ai/README.md) | Authenticated serverless RAG with Bedrock, S3 Vectors and Nova Lite; [case study and trade-offs](enterpriseiq-gen-ai/docs/portfolio/README.md), [evidence](enterpriseiq-gen-ai/docs/portfolio/evidence/README.md) |
+| [Enterprise Hybrid Network](enterprise-hybrid-network/README.md) | Four-zone TGW segmentation, simulated strongSwan/FRR data center, VPN/BGP and hybrid DNS; [live evidence](enterprise-hybrid-network/docs/live-validation-2026-11-06.md), verified teardown and unresolved failover recovery |
 
 ## Add another project
 
